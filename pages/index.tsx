@@ -1,10 +1,7 @@
-import Head from "next/head";
-import Image from "next/image";
-
 const Home = () => {
   return (
     <div>
-      <h1>hello</h1>
+      <h1>home</h1>
     </div>
   );
 };
