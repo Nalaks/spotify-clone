@@ -2,9 +2,7 @@ import {
   Box,
   List,
   ListItem,
-  ListIcon,
   Divider,
-  Center,
   LinkBox,
   LinkOverlay,
 } from "@chakra-ui/layout";
@@ -12,12 +10,12 @@ import {
   MdHome,
   MdSearch,
   MdLibraryMusic,
-  MdLibraryAdd,
   MdFavorite,
   MdPlaylistAdd,
 } from "react-icons/md";
 import NextImage from "next/image";
 import NextLink from "next/link";
+import NavListItem from "./navListItem";
 
 const navMenu = () => [
   {
@@ -68,34 +66,14 @@ const Sidebar = () => {
         <Box mb="20px">
           <List spacing={2}>
             {navMenu().map((item) => (
-              // Todo: make another component for this
-              <ListItem key={item.name} px="20px" fontSize="16px">
-                <LinkBox>
-                  <NextLink href={item.route} passHref>
-                    <LinkOverlay>
-                      <ListIcon as={item.icon} color="white" mr="20px" />
-                      {item.name}
-                    </LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
+              <NavListItem item={item} />
             ))}
           </List>
         </Box>
         <Box mt="20px">
           <List spacing={2}>
             {musicMenu().map((item) => (
-              // Todo: make another component for this
-              <ListItem key={item.name} px="20px" fontSize="16px">
-                <LinkBox>
-                  <NextLink href={item.route} passHref>
-                    <LinkOverlay>
-                      <ListIcon as={item.icon} color="white" mr="20px" />
-                      {item.name}
-                    </LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
+              <NavListItem item={item} />
             ))}
           </List>
         </Box>
@@ -103,7 +81,6 @@ const Sidebar = () => {
         <Box height="60.5%" overflowY="auto" py="20px">
           <List spacing={2}>
             {playlists.map((item) => (
-              // Todo: make another component for this
               <ListItem key={item} px="20px" fontSize="16px">
                 <LinkBox>
                   <NextLink href="/" passHref>
