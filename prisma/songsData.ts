@@ -1,7 +1,4 @@
-interface IArtistData {
-  name: string;
-  songs: any[];
-}
+import { IArtistData } from "../types/types";
 
 export const artistsData: IArtistData[] = [
   {

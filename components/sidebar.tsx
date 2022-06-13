@@ -29,7 +29,7 @@ const navMenu = () => [
     route: "/search",
   },
   {
-    name: "Home",
+    name: "Library",
     icon: MdLibraryMusic,
     route: "/library",
   },
@@ -66,14 +66,14 @@ const Sidebar = () => {
         <Box mb="20px">
           <List spacing={2}>
             {navMenu().map((item) => (
-              <NavListItem item={item} />
+              <NavListItem key={item.name} item={item} />
             ))}
           </List>
         </Box>
         <Box mt="20px">
           <List spacing={2}>
             {musicMenu().map((item) => (
-              <NavListItem item={item} />
+              <NavListItem key={item.name} item={item} />
             ))}
           </List>
         </Box>
