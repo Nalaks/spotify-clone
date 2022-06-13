@@ -22,11 +22,16 @@ export interface IUser {
   updatedAt: Date;
 }
 
+export interface Song {
+  name: string;
+  duration: number;
+  url: string;
+  artist?: string;
+}
 export interface IArtistData {
   name: string;
-  songs: any[];
+  songs: Song[];
 }
-
 export interface AuthFC extends FC {
   authPage: boolean;
 }
@@ -34,4 +39,9 @@ export interface AuthFC extends FC {
 export interface AuthHandler {
   // eslint-disable-next-line no-unused-vars
   (req: NextApiRequest, res: NextApiResponse<any>, user: IUser): any;
+}
+
+export interface MiddlewareReq {
+  nextUrl: { pathname: string };
+  cookies: { TRAX_ACCESS_TOKEN: string };
 }
