@@ -9,7 +9,6 @@ import {
 import { useRouter } from "next/router";
 import NextImage from "next/image";
 import React, { FC, useState } from "react";
-import { useSWRConfig } from "swr";
 import { auth } from "../lib/mutations";
 import { AuthModeProps } from "../types/types";
 
@@ -42,9 +41,9 @@ const AuthForm: FC<AuthModeProps> = ({ mode }) => {
           <form onSubmit={handleSubmit}>
             <Box w="25vw">
               <FormControl>
-                <FormLabel htmlFor="email">Email address</FormLabel>
+                <FormLabel htmlFor="email">Email</FormLabel>
                 <Input
-                  placeholder="email"
+                  placeholder="john@example.com"
                   type="email"
                   id="email"
                   onChange={(e) => setEmail(e.target.value)}
@@ -53,7 +52,7 @@ const AuthForm: FC<AuthModeProps> = ({ mode }) => {
               <FormControl mt="20px">
                 <FormLabel htmlFor="password">Password</FormLabel>
                 <Input
-                  placeholder="password"
+                  placeholder="********"
                   type="password"
                   id="password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -66,7 +65,7 @@ const AuthForm: FC<AuthModeProps> = ({ mode }) => {
                 _hover={{ background: "green.300" }}
                 mt="20px"
               >
-                {mode}
+                {mode === "signin" ? "Login" : "Sign Up"}
               </Button>
             </Box>
           </form>

@@ -16,6 +16,7 @@ import {
 import NextImage from "next/image";
 import NextLink from "next/link";
 import NavListItem from "./navListItem";
+import { usePlaylist } from "../lib/hooks";
 
 const navMenu = () => [
   {
@@ -48,9 +49,8 @@ const musicMenu = () => [
   },
 ];
 
-const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
-
 const Sidebar = () => {
+  const { playlists } = usePlaylist();
   return (
     <Box
       width="100%"
@@ -78,13 +78,13 @@ const Sidebar = () => {
           </List>
         </Box>
         <Divider color="gray.800" mt="10px" />
-        <Box height="60.5%" overflowY="auto" py="20px">
+        <Box height="60.5%" overflowY="auto" py="10px">
           <List spacing={2}>
-            {playlists.map((item) => (
-              <ListItem key={item} px="20px" fontSize="16px">
+            {playlists.map((playlist) => (
+              <ListItem key={playlist.id} px="20px" fontSize="16px">
                 <LinkBox>
                   <NextLink href="/" passHref>
-                    <LinkOverlay>{item}</LinkOverlay>
+                    <LinkOverlay>{playlist.name}</LinkOverlay>
                   </NextLink>
                 </LinkBox>
               </ListItem>

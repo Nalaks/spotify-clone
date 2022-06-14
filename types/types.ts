@@ -45,3 +45,9 @@ export interface MiddlewareReq {
   nextUrl: { pathname: string };
   cookies: { TRAX_ACCESS_TOKEN: string };
 }
+
+export interface IPlaylist {
+  playlists: string[] | [];
+  isLoading: boolean;
+  isError: string;
+}
