@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export type Mode = "signin" | "signup";
@@ -50,4 +50,14 @@ export interface IPlaylist {
   playlists: string[] | [];
   isLoading: boolean;
   isError: string;
+}
+
+export interface GradientLayoutProps {
+  children: React.ReactNode;
+  color: string;
+  image: string;
+  subtitle: string;
+  title: string;
+  description: string;
+  roundImage: boolean;
 }
